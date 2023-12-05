@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Hỗ Trợ Kỹ Thuật</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .cover-image {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2 {
+        color: #333;
+        text-align: center;
+      }
+
+      .social-logo {
+        width: 50px;
+        height: auto;
+        margin: 10px;
+      }
+
+      .social-logo + .social-logo {
+        margin-left: 20px;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="cover-image"
+      src="https://lh3.googleusercontent.com/p/AF1QipO3F7ujl8ymb-KRB37N6tBvGbpnYYrZ8zQY02i2=s1360-w1360-h1020"
+      alt="Cover Image"
+    />
+    <div class="container">
+      <h1>Trang Hỗ Trợ Kỹ Thuật</h1>
+      <p>
+        Xin chào! Chúng tôi ở đây để giúp bạn với mọi vấn đề kỹ thuật bạn đang
+        gặp phải.
+      </p>
+
+      <h2>Hướng Dẫn Sử Dụng</h2>
+      <p>
+        Bạn cũng có thể tham khảo các hướng dẫn sử dụng trong phần
+        <a href="huong-dan.html">Hướng Dẫn</a>.
+      </p>
+
+      <form id="supportForm" action="process_form.php" method="post">
+        <label for="name">Họ Tên:</label>
+        <input type="text" id="name" name="name" required /><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br />
+
+        <label for="message">Nội Dung:</label><br />
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          cols="50"
+          required
+        ></textarea
+        ><br />
+
+        <input type="submit" value="Gửi" />
+      </form>
+    </div>
+
+    <div style="text-align: center">
+      <a
+        href="https://www.facebook.com/vgsthanhle/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="social-logo"
+          src="https://images.unsplash.com/photo-1633675254053-d96c7668c3b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFjZWJvb2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+          alt="Facebook Logo"
+        />
+      </a>
+      <a
+        href="https://www.youtube.com/@MaCh1n3Gaming"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="social-logo"
+          src="https://images.unsplash.com/photo-1634942536846-e9863ef9e78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHlvdXR1YmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+          alt="Youtube Logo"
+        />
+      </a>
+    </div>
+
+    <h2>Liên Hệ Chúng Tôi</h2>
+    <p>Nếu bạn cần trợ giúp, vui lòng liên hệ:</p>
+    <ul>
+      <li>Email: maengseong@gmail.com</li>
+      <li>Số điện thoại: 0981296595</li>
+      <li>
+        Telegram:
+        <a
+          href="https://t.me/CPSVT_Bot_Support"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          https://t.me/CPSVT_Bot_Support
+        </a>
+      </li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("supportForm")
+        .addEventListener("submit", function (event) {
+          if (!validateForm()) {
+            event.preventDefault();
+          }
+        });
+
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+        if (
+          name.trim() === "" ||
+          email.trim() === "" ||
+          message.trim() === ""
+        ) {
+          alert("Vui lòng điền đầy đủ thông tin.");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
