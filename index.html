@@ -3,8 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trang Hỗ Trợ Kỹ Thuật</title>
+    <title>Hỗ Trợ Kỹ Thuật CPS</title>
     <style>
+      body.light-mode {
+        background-color: #fff;
+        color: #333;
+        transition: background-color 0.5s, color 0.5s;
+      }
+
+      body.dark-mode {
+        background-color: #333;
+        color: #fff;
+        transition: background-color 0.5s, color 0.5s;
+      }
+
       body {
         font-family: "Arial", sans-serif;
         margin: 0;
@@ -22,15 +34,22 @@
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
-        background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
       h1,
       h2 {
-        color: #333;
         text-align: center;
+        color: #333;
+      }
+
+      /* Chỉnh màu chữ cho chế độ tối */
+      body.dark-mode h1,
+      body.dark-mode h2,
+      body.dark-mode p,
+      body.dark-mode li {
+        color: #fff;
       }
 
       .social-logo {
@@ -65,14 +84,34 @@
         background-color: #4caf50;
         color: #fff;
         cursor: pointer;
+        transition: background-color 0.5s, color 0.5s;
       }
 
       input[type="submit"]:hover {
         background-color: #45a049;
       }
+
+      .toggle-btn {
+        cursor: pointer;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        transition: background-color 0.5s, color 0.5s;
+      }
+
+      .toggle-btn:hover {
+        background-color: #45a049;
+      }
     </style>
   </head>
-  <body>
+  <body class="light-mode">
+    <!-- Nội dung trang web -->
     <img
       class="cover-image"
       src="https://lh3.googleusercontent.com/p/AF1QipO3F7ujl8ymb-KRB37N6tBvGbpnYYrZ8zQY02i2=s1360-w1360-h1020"
@@ -125,7 +164,7 @@
         />
       </a>
       <a
-        href="https://www.youtube.com/@MaCh1n3Gaming"
+        href="https://www.youtube.com/@GameNLaughHub"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -154,6 +193,11 @@
       </li>
     </ul>
 
+    <!-- Nút chuyển đổi chế độ sáng/tối -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">
+      Chuyển đổi Chế độ
+    </button>
+
     <script>
       document
         .getElementById("supportForm")
@@ -178,6 +222,11 @@
         }
 
         return true;
+      }
+
+      function toggleDarkMode() {
+        var body = document.body;
+        body.classList.toggle("dark-mode");
       }
     </script>
   </body>
