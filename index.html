@@ -12,8 +12,8 @@
       }
 
       body.dark-mode {
-        background-color: #333;
-        color: #fff;
+        background-color: #2c3e50;
+        color: #ecf0f1;
         transition: background-color 0.5s, color 0.5s;
       }
 
@@ -21,45 +21,51 @@
         font-family: "Arial", sans-serif;
         margin: 0;
         padding: 0;
+        color: #333;
+        background-color: #f8f8f8;
+        transition: color 0.5s;
+        /* Thêm background image cho toàn bộ trang */
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
-      .cover-image {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: auto;
+      .preserve-text-color {
+        color: #333;
+      }
+
+      .preserve-text-color.dark-mode {
+        color: #ecf0f1;
       }
 
       .container {
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(243, 240, 240, 0.2);
+        background-color: #f8f8f8;
+        transition: background-color 0.5s;
+        position: relative;
+      }
+
+      .container.dark-mode {
+        background-color: #34495e;
       }
 
       h1,
       h2 {
         text-align: center;
-        color: #333;
+        color: #3498db;
+        transition: color 0.5s;
       }
 
-      /* Chỉnh màu chữ cho chế độ tối */
       body.dark-mode h1,
       body.dark-mode h2,
       body.dark-mode p,
       body.dark-mode li {
-        color: #fff;
-      }
-
-      .social-logo {
-        width: 50px;
-        height: auto;
-        margin: 10px;
-      }
-
-      .social-logo + .social-logo {
-        margin-left: 20px;
+        color: #ecf0f1;
       }
 
       form {
@@ -69,73 +75,171 @@
 
       label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        color: #555;
       }
 
       input,
       textarea {
         width: 100%;
-        padding: 8px;
+        padding: 10px;
         margin-bottom: 15px;
         box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #333;
+        background-color: #fff;
+        transition: background-color 0.5s, color 0.5s;
       }
 
       input[type="submit"] {
-        background-color: #4caf50;
+        background-color: #2ecc71;
         color: #fff;
         cursor: pointer;
         transition: background-color 0.5s, color 0.5s;
       }
 
       input[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: #27ae60;
       }
 
-      .toggle-btn {
-        cursor: pointer;
-        background-color: #4caf50;
+      .decorative-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 5px solid #3498db;
+        border-radius: 15px;
+        z-index: -1;
+      }
+
+      .top-banner {
+        background-color: #fff;
+        padding: 0px;
+        text-align: center;
+        position: relative;
+      }
+
+      .top-banner img {
+        width: 20%;
+        height: auto;
+        margin: 0 10px;
+      }
+
+      .center-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .center-logo img {
+        width: 120px;
+        height: auto;
+        margin: 0 10px;
+      }
+
+      /* Định dạng cho phần contact-info và branch-info */
+      .contact-info,
+      .branch-info {
+        max-width: 800px;
+        margin: 10px;
+        background-color: #3498db;
         color: #fff;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        margin-top: 10px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        transition: background-color 0.5s, color 0.5s;
+        padding: 20px;
+        border-radius: 200px;
+        margin: 20px auto;
+        text-align: center;
       }
 
-      .toggle-btn:hover {
-        background-color: #45a049;
+      .contact-info h2,
+      .branch-info h2 {
+        color: #ecf0f1;
+        margin-bottom: 1px;
+      }
+
+      .contact-info ul,
+      .branch-info p {
+        list-style: none;
+        padding: 05;
+        margin: 20px 0;
+        font-size: 15px;
+        line-height: 1;
+      }
+
+      .contact-info a {
+        color: #fff;
+      }
+
+      .branch-info a {
+        color: #fff;
+      }
+
+      .contact-info a:hover,
+      .branch-info a:hover {
+        text-decoration: underline;
+      }
+
+      .branch-info {
+        margin-bottom: 40px; /* Thêm khoảng cách giữa branch-info và bottom của trang */
+      }
+
+      .branch-info p:last-child {
+        margin-bottom: 0; /* Loại bỏ khoảng cách dưới cùng của branch-info */
       }
     </style>
   </head>
+
   <body class="light-mode">
+    <!-- Top banner -->
+    <div class="top-banner">
+      <img
+        src="https://cdn2.cellphones.com.vn/x30,webp,q100/https://dashboard.cellphones.com.vn/storage/top-banner-chinh-sach-bao-hanh-doi-tra.png"
+        alt="Banner 1"
+      />
+      <img
+        src="https://cdn2.cellphones.com.vn/x30,webp,q100/https://dashboard.cellphones.com.vn/storage/top-banner-chinh-hang-xuat-vat-day-du.png"
+        alt="Banner 2"
+      />
+      <img
+        src="https://cdn2.cellphones.com.vn/x30,webp,q100/https://dashboard.cellphones.com.vn/storage/top-banner-giao-nhanh-mien-phi.png"
+        alt="Banner 3"
+      />
+    </div>
+
     <!-- Nội dung trang web -->
-    <img
-      class="cover-image"
-      src="https://lh3.googleusercontent.com/p/AF1QipO3F7ujl8ymb-KRB37N6tBvGbpnYYrZ8zQY02i2=s1360-w1360-h1020"
-      alt="Cover Image"
-    />
     <div class="container">
-      <h1>Trang Hỗ Trợ Kỹ Thuật</h1>
-      <p>
+      <div class="decorative-border"></div>
+      <h1 class="preserve-text-color">Trang Hỗ Trợ Kỹ Thuật</h1>
+      <p class="preserve-text-color">
         Xin chào! Chúng tôi ở đây để giúp bạn với mọi vấn đề kỹ thuật bạn đang
         gặp phải.
       </p>
 
-      <h2>Hướng Dẫn Sử Dụng</h2>
-      <p>
+      <h2 class="preserve-text-color">Hướng Dẫn Sử Dụng</h2>
+      <p class="preserve-text-color">
         Bạn cũng có thể tham khảo các hướng dẫn sử dụng trong phần
-        <a href="huong-dan.html">Hướng Dẫn</a>.
+        <a href="huong-dan.html" class="preserve-text-color">Hướng Dẫn</a>.
       </p>
 
       <form id="supportForm" action="process_form.php" method="post">
         <label for="name">Họ Tên:</label>
-        <input type="text" id="name" name="name" required /><br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="preserve-text-color"
+        /><br />
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required /><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="preserve-text-color"
+        /><br />
 
         <label for="message">Nội Dung:</label><br />
         <textarea
@@ -144,86 +248,60 @@
           rows="4"
           cols="50"
           required
+          class="preserve-text-color"
         ></textarea
         ><br />
 
-        <input type="submit" value="Gửi" />
+        <input type="submit" value="Gửi" class="preserve-text-color" />
       </form>
     </div>
 
-    <div style="text-align: center">
-      <a
-        href="https://www.facebook.com/vgsthanhle/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          class="social-logo"
-          src="https://images.unsplash.com/photo-1633675254053-d96c7668c3b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmFjZWJvb2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-          alt="Facebook Logo"
-        />
-      </a>
-      <a
-        href="https://www.youtube.com/@GameNLaughHub"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          class="social-logo"
-          src="https://images.unsplash.com/photo-1634942536846-e9863ef9e78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHlvdXR1YmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-          alt="Youtube Logo"
-        />
-      </a>
+    <!-- Nút chuyển đổi chế độ sáng/tối -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌞🌚</button>
+
+    <!-- Thông tin vị trí và số điện thoại liên hệ -->
+    <div class="contact-info">
+      <h2 class="preserve-text-color">Liên Hệ của tôi</h2>
+      <ul class="preserve-text-color">
+        <p>
+          <li>Email: maengseong@gmail.com</li>
+        </p>
+        <p>
+          Số điện thoại:
+          <a href="tel:0981296595" class="preserve-text-color">0981296595</a>
+        </p>
+        <li>
+          Telegram:
+          <a
+            href="https://t.me/CPSVT_Bot_Support"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="preserve-text-color"
+          >
+            https://t.me/CPSVT_Bot_Support
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <h2>Liên Hệ Chúng Tôi</h2>
-    <p>Nếu bạn cần trợ giúp, vui lòng liên hệ:</p>
-    <ul>
-      <li>Email: maengseong@gmail.com</li>
-      <li>Số điện thoại: 0981296595</li>
-      <li>
-        Telegram:
-        <a
-          href="https://t.me/CPSVT_Bot_Support"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://t.me/CPSVT_Bot_Support
-        </a>
-      </li>
-    </ul>
-
-    <!-- Nút chuyển đổi chế độ sáng/tối -->
-    <button class="toggle-btn" onclick="toggleDarkMode()">
-      Chuyển đổi Chế độ
-    </button>
+    <div class="branch-info">
+      <h2 class="preserve-text-color">Chi Nhánh</h2>
+      <p class="preserve-text-color">
+        📍CellphoneS 491 đường 30/4, P. Rạch Dừa, TP. Vũng Tàu SĐT:
+        <a href="tel:02871000491" class="preserve-text-color">02871000491</a>
+      </p>
+      <p class="preserve-text-color">
+        📍CellphoneS 256A Ba Cu, phường 3, TP. Vũng Tàu SĐT:
+        <a href="tel:02871000256" class="preserve-text-color">02871000256</a>
+      </p>
+      <p class="preserve-text-color">
+        📍CellphoneS 165 Lê Hồng Phong, P.8, TP. Vũng Tàu, Bà Rịa - Vũng Tàu
+        SĐT:
+        <a href="tel:02871000165" class="preserve-text-color">02871000165</a>
+      </p>
+    </div>
 
     <script>
-      document
-        .getElementById("supportForm")
-        .addEventListener("submit", function (event) {
-          if (!validateForm()) {
-            event.preventDefault();
-          }
-        });
-
-      function validateForm() {
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var message = document.getElementById("message").value;
-
-        if (
-          name.trim() === "" ||
-          email.trim() === "" ||
-          message.trim() === ""
-        ) {
-          alert("Vui lòng điền đầy đủ thông tin.");
-          return false;
-        }
-
-        return true;
-      }
-
       function toggleDarkMode() {
         var body = document.body;
         body.classList.toggle("dark-mode");
